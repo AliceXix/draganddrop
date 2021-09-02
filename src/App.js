@@ -21,8 +21,12 @@ function App() {
         >
           Learn React
         </a>
-        <CardsGrid/>
       </header>
+      <body>
+      <div className="site-card-wrapper">
+      <CardsGrid />
+      </div>
+      </body>
     </div>
   );
 }

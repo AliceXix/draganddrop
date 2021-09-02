@@ -32,3 +32,5 @@
     white-space: nowrap;
     width: 1px;
 }
+
+@import '~antd/dist/antd.css';
