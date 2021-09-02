@@ -1,71 +1,77 @@
-import React from "react";
-import { List, Card } from 'antd';
-import Grid from "antd/lib/card/Grid";
-//import NestedList from "./nestedList";
+import React from "react"
+import { Card, List} from 'antd';
 
-const data = [
-  {
-    title: 'Tasks',
-    tasks: [],
-  },
-  {
-    title: 'Monday',
-    tasks: ['Samurai killing', 'Order toilet paper'],
-  },
-  {
-    title: 'Tuesday',
-    tasks: [],
-  },
-  {
-    title: 'Wednesday',
-    tasks: [],
-  },
-  {
-    title: 'Thursday',
-    tasks: [],
-  },
-  {
-    title: 'Friday',
-    tasks: ['Reserve sushi'],
-  },
-  {
-    title: 'Saturday',
-    tasks: [],
-  },
-  {
-    title: 'Sunday',
-    tasks: [],
-  },
-];
 
-const CardsGrid = () => {
-  //const something = data.map(item => item + 1);
 
-  //List.dataSource.renderItem(item => <div>item</div>);
+const cards = [
+  {
+    title: "Monday",
+    cards: [{
+      subtitle: 'Task 1',
+    },
+    {
+      subtitle: 'Task 2',
+    },
+    {
+      subtitle: 'Task 3',
+    },
+    {
+      subtitle: 'Task 4',
+    },
+    ]
+  },
+  {
+    title: "Tuesday",
+    cards: [{
+      subtitle: 'Task 1',
+    },
+    {
+      subtitle: 'Task 2',
+    },
+    {
+      subtitle: 'Task 3',
+    },
+    {
+      subtitle: 'Task 4',
+    }
+    ]
+  }
+]
 
-    return(
-  <List
-    grid={{
-      gutter: 16,
-      xs: 1,
-      sm: 2,
-      md: 4,
-      lg: 4,
-      xl: 6,
-      xxl: 3,
-    }}
-    dataSource={data}
-    renderItem={item => (
-      <List.Item>
-        <Card title={item.title}
-        tasks={item.tasks} >
-        </Card>
-      </List.Item>
-    )}
-  />
 
-)
+
+export const CardsList = ({ props }) => {
+  return (
+    <div className="CardsList">
+      <p> {props.title} </p>
+      <List
+        grid={{ gutter: 16, column: 1 }}
+        dataSource={props.cards}
+        renderItem={item => (
+          <List.Item>
+            <Card title={item.subtitle}>Card content</Card>
+          </List.Item>
+        )
+        }
+      />
+    </div>
+  )
 }
 
 
-export default CardsGrid;
+
+
+export const CardsGrid = () => {
+  return (
+    <List
+      grid={{ gutter: 16, column: 5 }}
+      dataSource={cards}
+      renderItem={item => (
+        <CardsList props={{ title: item.title, cards: item.cards }} />
+      )
+      }
+    />
+  )
+}
+
+

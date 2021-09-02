@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 import logo from './logo.svg';
 import './App.css';
 import Search from './search';
-import CardsGrid from './CardsGrid';
+import { CardsGrid } from './CardsGrid';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> 
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <Search />
         <a
@@ -23,11 +23,12 @@ function App() {
         </a>
       </header>
       <body>
-      <div className="site-card-wrapper">
-      <CardsGrid />
-      </div>
+        <div className="site-card-wrapper">
+          <CardsGrid />
+        </div>
       </body>
     </div>
+
   );
 }
 
