@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Search from './search';
 import { CardsGrid } from './CardsGrid';
+import { Box } from "./dnd";
+import { Bucket } from "./dnd"
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 function App() {
   return (
@@ -24,11 +28,16 @@ function App() {
       </header>
       <body>
         <div className="site-card-wrapper">
-          <CardsGrid />
         </div>
+        <DndProvider backend={HTML5Backend}>
+          <Bucket >
+          </Bucket >
+          <Box content="Box 1">
+                "Box 1"
+            </Box>
+        </DndProvider>
       </body>
     </div>
-
   );
 }
 
